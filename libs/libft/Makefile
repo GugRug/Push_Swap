@@ -33,7 +33,8 @@ DIR_SRCS_TO			=	$(SRCS_DIR)/to
 DIR_SRCS_UTILS		=	$(SRCS_DIR)/utils
 
 # Libraries and its location
-INCLUDE				=	-I$(INCS_DIR)
+FT_DIR				=	./libs/libft
+INCLUDE				=	-I$(INCS_DIR) -I$(FT_DIR)/include
 
 # Compact to SRCS
 SRCS				=	$(SRCS_GNL)										\

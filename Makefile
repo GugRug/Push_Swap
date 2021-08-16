@@ -38,13 +38,16 @@ SRCS				=	$(SRCS_MAIN)									\
 						$(SRCS_UTILS)
 
 # Sources
-SRCS_MAIN			=	$(DIR_SRCS_MAIN)/main.c
+SRCS_MAIN			=	$(DIR_SRCS_MAIN)/main.c							\
+						$(DIR_SRCS_MAIN)/error.c
 
-SRCS_PARSER			=	
+SRCS_PARSER			=	$(DIR_SRCS_PARSER)/normalize.c					\
+						$(DIR_SRCS_PARSER)/parser.c
 
-SRCS_STACK			=	
+SRCS_STACK			=	$(DIR_SRCS_STACK)/stack.c						\
+						$(DIR_SRCS_STACK)/operations.c
 
-SRCS_UTILS			=	
+SRCS_UTILS			=	$(DIR_SRCS_UTILS)/utils.c						\
 
 # OBJS
 SUBDIRS				=	main parser stack utils
