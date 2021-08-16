@@ -10,9 +10,20 @@
 
 #include "push_swap.h"
 
-void	oper_test(t_stack *a, t_stack *b)
+void	oper_test(t_stack **a, t_stack **b)
 {
-	p_stack(&a, &b);
+	p_stack(a, b);
+	// p_stack(a, b);
+	// p_stack(a, b);
+	// p_stack(a, b);
+	// s_stack(a);
+	// rr_stack(a);
+	// rr_stack(a);
+	// rr_stack(a);
+	// r_stack(a);
+	// r_stack(a);
+	// s_stack(a);
+	// s_stack(b);
 }
 
 void	print_stack(t_stack *stack)
@@ -33,7 +44,10 @@ int	main(int argc, char **argv)
 	a = (t_stack *)ft_calloc(1, sizeof (t_stack));
 	b = (t_stack *)ft_calloc(1, sizeof (t_stack));
 	a = parser(argc, argv);
-	oper_test(a, b);
+
+	char **teste = ft_split("batata&3 9 7 5 2", '&');
+	b = parser(argc, teste);
+	oper_test(&a, &b);
 	print_stack(a);
 	print_stack(b);
 	//operations

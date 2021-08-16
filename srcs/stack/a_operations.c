@@ -1,6 +1,6 @@
 /* ************************************************************************** */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   a_operations.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gugrug <gustavorugg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 
 #include "push_swap.h"
 
-void	p_stack(t_stack **orig, t_stack **dest)
+void	pa_stack(t_stack **orig, t_stack **dest)
 {
 	t_stack	*tmp;
 
@@ -19,14 +19,15 @@ void	p_stack(t_stack **orig, t_stack **dest)
 	{
 		tmp = (*orig);
 		(*orig) = (*orig)->next;
-		(*orig)->prev = NULL;
+		if (*orig)
+			(*orig)->prev = NULL;
 		tmp->next = (*dest);
 		(*dest)->prev = tmp;
 		(*dest) = (*dest)->prev;
 	}
 }
 
-void	s_stack(t_stack **top)
+void	sa_stack(t_stack **top)
 {
 	t_stack	*tmp;
 
@@ -38,11 +39,12 @@ void	s_stack(t_stack **top)
 		tmp->next->prev = (*top);
 		(*top)->prev = tmp;
 		tmp->next = (*top);
+		tmp->prev = NULL;
 		(*top) = (*top)->prev;
 	}
 }
 
-void	r_stack(t_stack **top)
+void	ra_stack(t_stack **top)
 {
 	t_stack	*last;
 	t_stack	*head;
@@ -60,7 +62,7 @@ void	r_stack(t_stack **top)
 	}
 }
 
-void	rr_stack(t_stack **top)
+void	rra_stack(t_stack **top)
 {
 	t_stack	*last;
 

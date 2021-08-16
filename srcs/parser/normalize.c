@@ -1,6 +1,6 @@
 /* ************************************************************************** */
 /*                                                        :::      ::::::::   */
-/*   normalize.c                                            :+:      :+:    :+:   */
+/*   normalize.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gugrug <gustavorugg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -31,7 +31,7 @@ void	normalize(t_stack *stack, int min)
 		ptr = stack;
 		while (ptr)
 		{
-			if(ptr->v > max)
+			if (ptr->v > max)
 				ptr->v -= (min - 1 - max);
 			ptr = ptr->next;
 		}
@@ -52,7 +52,7 @@ void	normalize_min(t_stack *stack, int min)
 	}
 }
 
-int		get_min_not_normalized(t_stack *stack, int max)
+int	get_min_not_normalized(t_stack *stack, int max)
 {
 	int	min;
 

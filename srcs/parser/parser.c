@@ -10,11 +10,12 @@
 
 #include "push_swap.h"
 
+//free_array(temp) later;
 t_stack	*parser(int argc, char **argv)
 {
 	int		min;
 	char	**temp;
-	t_stack *stack;
+	t_stack	*stack;
 
 	if (argc < 1)
 		message_and_exit(E_N_ARGS, "Need at least 1 argument");
@@ -23,7 +24,6 @@ t_stack	*parser(int argc, char **argv)
 	{
 		temp = ft_split(argv[0], ' ');
 		stack = build_stack(temp, &min);
-		//free_array(temp);
 	}
 	else
 	{
@@ -37,8 +37,8 @@ t_stack	*parser(int argc, char **argv)
 t_stack	*build_stack(char **str, int *min)
 {
 	int		i;
-	t_stack *stack;
-	t_stack *new;
+	t_stack	*stack;
+	t_stack	*new;
 
 	i = 0;
 	stack = NULL;
