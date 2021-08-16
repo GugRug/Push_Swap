@@ -11,6 +11,9 @@
 #ifndef FT_ERROR_H
 # define FT_ERROR_H
 
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 # include <errno.h>
 
 #define	FT_EXIT_FAILURE		1

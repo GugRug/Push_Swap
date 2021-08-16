@@ -15,7 +15,7 @@ NAME				=	push_swap
 
 # C Compiler configuration
 CC					=	clang
-CC_FLAGS			=	$(BASIC_FLAGS) #$(CC_TESTS)
+CC_FLAGS			=	$(BASIC_FLAGS) $(CC_TESTS)
 BASIC_FLAGS			=	-Wall -Wextra -Werror
 CC_TESTS			=	-g #-fsanitize=address
 
@@ -23,13 +23,18 @@ CC_TESTS			=	-g #-fsanitize=address
 SRCS_DIR			=	./srcs
 OBJS_DIR			=	./objs
 INCS_DIR			=	./includes
+LIBS_DIR			=	./libs
 DIR_SRCS_MAIN		=	$(SRCS_DIR)/main
 DIR_SRCS_PARSER		=	$(SRCS_DIR)/parser
 DIR_SRCS_STACK		=	$(SRCS_DIR)/stack
 DIR_SRCS_UTILS		=	$(SRCS_DIR)/utils
 
 # Libraries and its location
-INCLUDE				=	-I$(INCS_DIR)
+FT_DIR				=	$(LIBS_DIR)/libft
+LIBFT				=	libft.a
+LIBS_DIR_ALL		=	-L$(FT_DIR)
+LIBS_ALL			=	-lft
+INCLUDE				=	-I$(INCS_DIR) -I$(FT_DIR)/include
 
 # Compact to SRCS
 SRCS				=	$(SRCS_MAIN)									\
@@ -55,18 +60,31 @@ DIR_OBJS			=	$(foreach dir, $(SUBDIRS),						\
 						$(addprefix $(OBJS_DIR)/, $(dir)))
 OBJS				=	$(subst $(SRCS_DIR), $(OBJS_DIR), $(SRCS:.c=.o))
 
-# RULES
-all: $(NAME)
+# COMPILING RULES
+all: libs $(NAME)
 
 $(NAME):	$(OBJS)
-			@ar -rcs $(NAME) $(OBJS)
-			@ranlib $(NAME)
+			@$(CC) $(CC_FLAGS) $^ $(LIBS_DIR_ALL) $(LIBS_ALL) -o $@
 			@echo "push_swap is ready to use!"
 
 $(OBJS_DIR)/%.o:	$(SRCS_DIR)/%.c
 			@echo "Making push_swap . . ."
 			@mkdir -p $(OBJS_DIR) $(DIR_OBJS)
 			@$(CC) $(CC_FLAGS) $(INCLUDE) -c $< -o $@
+
+# LIBS RULES
+libs: $(FT_DIR)/$(LIBFT)
+
+$(FT_DIR)/$(LIBFT):
+			@echo "Making libft . . ."
+			@$(MAKE) -C $(FT_DIR) all
+			@echo "libft is ready to use!"
+
+# CLEAN RULES
+libs_clean:
+			@echo "Full cleaning libft . . ."
+			@$(MAKE) -C $(FT_DIR) name_clean
+			@echo "libft has been cleaned thoroughly!"
 
 clean:
 			@echo "Cleaning push_swap . . ."
@@ -78,8 +96,9 @@ name_clean:
 			@rm -f $(NAME)
 			@echo "$(NAME) was removed successfully!"
 
-fclean: name_clean clean
+fclean: libs_clean clean name_clean
 
+# BASIC RULES
 re: fclean all
 
-.PHONY: all clean fclean name_clean re
+.PHONY: all libs libs_clean clean name_clean fclean re

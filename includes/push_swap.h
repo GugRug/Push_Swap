@@ -49,15 +49,15 @@ void	rr_stack(t_stack **top);
 /*
 **	parser/normalize.c
 */
-void	normalize(t_stack *stack);
-void	normalize_min(t_stack *stack);
-int		get_min_not_normalized(t_stack *stack);
+void	normalize(t_stack *stack, int min);
+void	normalize_min(t_stack *stack, int min);
+int		get_min_not_normalized(t_stack *stack, int max);
 
 /*
 **	parser/parser.c
 */
 t_stack	*parser(int argc, char **argv);
-t_stack	*build_stack(int argc, char **str);
-bool	check_only_numbers(int argc, char **argv);
+t_stack	*build_stack(char **str, int *min);
+bool	check_only_numbers(char **argv);
 
 #endif

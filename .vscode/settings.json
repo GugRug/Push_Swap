@@ -1,0 +1,12 @@
+{
+	"files.associations": {
+		"cstdlib": "c",
+		"unistd.h": "c",
+		"error.h": "c",
+		"stdlib.h": "c",
+		"swap.h": "c",
+		"ft_error.h": "c",
+		"cstdio": "c",
+		"stdbool.h": "c"
+	}
+}

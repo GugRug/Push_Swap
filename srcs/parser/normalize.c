@@ -16,50 +16,56 @@
 
 #include "push_swap.h"
 
-void	normalize(t_stack *stack)
-{
-	t_stack	*ptr;
-	int		min;
+//need to implement return max and store the max value in some another way
 
-	ptr = stack;
-	stack->max = 0;
-	normalize_min(stack);
-	min = get_min_not_normalized(stack);
+void	normalize(t_stack *stack, int min)
+{
+	int		max;
+	t_stack	*ptr;
+
+	max = 0;
+	normalize_min(stack, min);
+	min = get_min_not_normalized(stack, max);
 	while (min != -1)
 	{
+		ptr = stack;
 		while (ptr)
 		{
-			if(ptr->v > ptr->max)
-				ptr->v -= (min - 1 - stack->max);
+			if(ptr->v > max)
+				ptr->v -= (min - 1 - max);
 			ptr = ptr->next;
 		}
-		(stack->max)++;
-		min = get_min_not_normalized(stack);
+		(max)++;
+		min = get_min_not_normalized(stack, max);
 	}
 }
 
-void	normalize_min(t_stack *stack)
+void	normalize_min(t_stack *stack, int min)
 {
-	while (stack)
+	t_stack	*ptr;
+
+	ptr = stack;
+	while (ptr)
 	{
-		stack->v -= stack->min;
+		ptr->v -= min;
+		ptr = ptr->next;
 	}
 }
 
-int		get_min_not_normalized(t_stack *stack)
+int		get_min_not_normalized(t_stack *stack, int max)
 {
 	int	min;
 
 	min = -1;
 	while (stack && min == -1)
 	{
-		if (stack->v > stack->max)
+		if (stack->v > max)
 			min = stack->v;
 		stack = stack->next;
 	}
 	while (stack)
 	{
-		if (stack->v < min && stack->v > stack->max)
+		if (stack->v < min && stack->v > max)
 			min = stack->v;
 		stack = stack->next;
 	}
