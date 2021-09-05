@@ -47,7 +47,7 @@ void	normalize_min(t_stack *stack, int min)
 	ptr = stack;
 	while (ptr)
 	{
-		ptr->v -= min;
+		ptr->v -= (min - 1);
 		ptr = ptr->next;
 	}
 }

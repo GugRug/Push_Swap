@@ -12,7 +12,7 @@
 
 void	oper_test(t_stack **a, t_stack **b)
 {
-	p_stack(a, b);
+	pa_stack(a, b);
 	// p_stack(a, b);
 	// p_stack(a, b);
 	// p_stack(a, b);
@@ -38,18 +38,21 @@ void	print_stack(t_stack *stack)
 
 int	main(int argc, char **argv)
 {
-	t_stack *a;
-	t_stack *b;
+	//need to change the global variable in error function to be local
+	t_world	*w;
 
-	a = (t_stack *)ft_calloc(1, sizeof (t_stack));
-	b = (t_stack *)ft_calloc(1, sizeof (t_stack));
-	a = parser(argc, argv);
+	w = (t_world *)ft_calloc(1, sizeof (t_world));
+	w->a = (t_stack *)ft_calloc(1, sizeof (t_stack));
+	// w->a = NULL;
+	// w->b = NULL;
+	w->a = parser(argc, argv);
 
-	char **teste = ft_split("batata&3 9 7 5 2", '&');
-	b = parser(argc, teste);
-	oper_test(&a, &b);
-	print_stack(a);
-	print_stack(b);
-	//operations
+	sort_stack(w);
+	// char **teste = ft_split("batata&3 9 7 5 2", '&');
+	// w->b = parser(argc, teste);
+	//oper_test(&(w->a), &(w->b));
+	// print_stack(w->a);
+	//print_stack(w);
+	//clean lists
 	return (0);
 }

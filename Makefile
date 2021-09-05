@@ -44,15 +44,19 @@ SRCS				=	$(SRCS_MAIN)									\
 
 # Sources
 SRCS_MAIN			=	$(DIR_SRCS_MAIN)/main.c							\
-						$(DIR_SRCS_MAIN)/error.c
+						$(DIR_SRCS_MAIN)/error.c						\
+						$(DIR_SRCS_MAIN)/sort.c
 
 SRCS_PARSER			=	$(DIR_SRCS_PARSER)/normalize.c					\
 						$(DIR_SRCS_PARSER)/parser.c
 
 SRCS_STACK			=	$(DIR_SRCS_STACK)/stack.c						\
-						$(DIR_SRCS_STACK)/operations.c
+						$(DIR_SRCS_STACK)/operations.c					\
+						$(DIR_SRCS_STACK)/a_operations.c				\
+						$(DIR_SRCS_STACK)/b_operations.c				\
+						$(DIR_SRCS_STACK)/double_operations.c
 
-SRCS_UTILS			=	$(DIR_SRCS_UTILS)/utils.c						\
+SRCS_UTILS			=	$(DIR_SRCS_UTILS)/utils.c
 
 # OBJS
 SUBDIRS				=	main parser stack utils
