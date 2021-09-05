@@ -59,5 +59,8 @@ static void	sort_stack_short(t_world *w)
 
 static void	sort_stack_long(t_world *w)
 {
-	w->b = NULL;
+	while (!stack_is_sorted(w->a))
+	{
+		radix_sort(w);
+	}
 }

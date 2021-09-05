@@ -43,12 +43,14 @@ bool	stack_is_sorted(t_stack *stack)
 	int	v;
 
 	v = get_min_v(stack);
+	if (stack->v != v)
+		return (false);
 	while (stack)
 	{
-		if (stack->v != v)
+		if (stack->v < v)
 			return (false);
+		v = stack->v;
 		stack = stack->next;
-		v++;
 	}
 	return (true);
 }

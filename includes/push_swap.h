@@ -32,6 +32,11 @@
 void	sort_stack(t_world *w);
 
 /*
+**	main/sort.c
+*/
+void	radix_sort(t_world *w);
+
+/*
 **	stack/stack.c
 */
 t_stack	*stack_last(t_stack *lst);

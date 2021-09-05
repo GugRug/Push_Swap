@@ -8,6 +8,7 @@
 		"ft_error.h": "c",
 		"cstdio": "c",
 		"stdbool.h": "c",
-		"push_swap.h": "c"
+		"push_swap.h": "c",
+		"libft.h": "c"
 	}
 }
