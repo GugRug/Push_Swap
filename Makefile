@@ -45,8 +45,7 @@ SRCS				=	$(SRCS_MAIN)									\
 # Sources
 SRCS_MAIN			=	$(DIR_SRCS_MAIN)/main.c							\
 						$(DIR_SRCS_MAIN)/error.c						\
-						$(DIR_SRCS_MAIN)/sort.c							\
-						$(DIR_SRCS_MAIN)/sort_big.c
+						$(DIR_SRCS_MAIN)/sort.c	
 
 SRCS_PARSER			=	$(DIR_SRCS_PARSER)/normalize.c					\
 						$(DIR_SRCS_PARSER)/parser.c
