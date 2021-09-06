@@ -22,22 +22,15 @@ static void	ft_putstr_error(char *s, int fd)
 	}
 }
 
-void	message_and_exit(t_error code, char *str)
+void	message_and_exit(char *str)
 {
 	ft_putstr_error("Error\n", FT_STDERR_FILENO);
-	if (errno && code == E_SYSTEM)
+	if (errno)
 		perror("");
-	else if (code > 0)
+	else if (str != NULL)
 	{
-		ft_putstr_error(g_error[code], FT_STDERR_FILENO);
-		if (str)
-		{
-			ft_putstr_error(": ", FT_STDERR_FILENO);
-			ft_putstr_error(str, FT_STDERR_FILENO);
-		}
+		ft_putstr_error(str, FT_STDERR_FILENO);
 		ft_putstr_error("\n", FT_STDERR_FILENO);
 	}
-	else
-		ft_putstr_error("Fatal Error\n", FT_STDERR_FILENO);
 	exit(FT_EXIT_FAILURE);
 }

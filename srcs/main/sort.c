@@ -27,12 +27,11 @@ void	sort_stack(t_world *w)
 {
 	w->size = ft_lstsize((t_list *)(w->a));
 	if (stack_is_sorted(w->a))
-		return;
+		return ;
 	if (w->size <= 5)
 		sort_stack_short(w);
 	else
 		sort_stack_long(w);
-
 }
 
 static void	sort_stack_short(t_world *w)
@@ -59,8 +58,5 @@ static void	sort_stack_short(t_world *w)
 
 static void	sort_stack_long(t_world *w)
 {
-	while (!stack_is_sorted(w->a))
-	{
-		radix_sort(w);
-	}
+	radix_sort(w);
 }

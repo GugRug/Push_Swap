@@ -57,8 +57,9 @@ bool	stack_is_sorted(t_stack *stack)
 
 static int	get_pos_stack(t_stack *stack, int v)
 {
-	int i = 1;
+	int	i;
 
+	i = 1;
 	while (stack)
 	{
 		if (stack->v == v)
@@ -66,7 +67,7 @@ static int	get_pos_stack(t_stack *stack, int v)
 		i++;
 		stack = stack->next;
 	}
-	message_and_exit(E_GENERIC, "Internal error: get_pos_stack");
+	message_and_exit("Internal error: get_pos_stack");
 	return (-1);
 }
 
@@ -78,12 +79,15 @@ void	find_and_rotate_to_top_a(t_world *w, int target)
 	while (pos > 1)
 	{
 		if ((pos - 1) <= (w->size - pos))
+		{
 			while (pos > 1)
 			{
 				ra_stack(&(w->a));
 				pos--;
 			}
+		}
 		else
+		{
 			while (pos > 1)
 			{
 				rra_stack(&(w->a));
@@ -91,5 +95,6 @@ void	find_and_rotate_to_top_a(t_world *w, int target)
 				if (pos > ft_lstsize((t_list *)(w->a)))
 					pos = 1;
 			}
+		}
 	}
 }

@@ -31,11 +31,9 @@ static void	put_all_to_a(t_world *w)
 void	radix_sort(t_world *w)
 {
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;
-	while (!stack_is_sorted(w->a) && j < 10)
+	while (!stack_is_sorted(w->a))
 	{
 		i = 0;
 		while (i < w->size)
@@ -48,6 +46,5 @@ void	radix_sort(t_world *w)
 		}
 		put_all_to_a(w);
 		shift_bit_a(w);
-		j++;
 	}
 }

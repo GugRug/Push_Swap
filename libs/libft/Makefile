@@ -93,13 +93,15 @@ SRCS_STR			=	$(DIR_SRCS_STR)/ft_strchr.c						\
 						$(DIR_SRCS_STR)/ft_strstr.c						\
 						$(DIR_SRCS_STR)/ft_strcut.c
 
-SRCS_TO				=	$(DIR_SRCS_TO)/ft_toupper.c						\
-						$(DIR_SRCS_TO)/ft_tolower.c						\
-						$(DIR_SRCS_TO)/ft_atoi.c						\
-						$(DIR_SRCS_TO)/ft_itoa.c
+SRCS_TO				=	$(DIR_SRCS_TO)/ft_atoi.c						\
+						$(DIR_SRCS_TO)/ft_atolli.c						\
+						$(DIR_SRCS_TO)/ft_itoa.c						\
+						$(DIR_SRCS_TO)/ft_toupper.c						\
+						$(DIR_SRCS_TO)/ft_tolower.c
 
 SRCS_UTILS			=	$(DIR_SRCS_UTILS)/ft_bzero.c					\
 						$(DIR_SRCS_UTILS)/ft_calloc.c					\
+						$(DIR_SRCS_UTILS)/ft_free.c						\
 						$(DIR_SRCS_UTILS)/ft_split.c
 
 # OBJS

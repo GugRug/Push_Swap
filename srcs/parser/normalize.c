@@ -18,10 +18,10 @@
 
 //need to implement return max and store the max value in some another way
 
-void	normalize(t_stack *stack, int min)
+void	normalize(t_stack *stack, long int min)
 {
-	int		max;
-	t_stack	*ptr;
+	long int	max;
+	t_stack		*ptr;
 
 	max = 0;
 	normalize_min(stack, min);
@@ -40,7 +40,7 @@ void	normalize(t_stack *stack, int min)
 	}
 }
 
-void	normalize_min(t_stack *stack, int min)
+void	normalize_min(t_stack *stack, long int min)
 {
 	t_stack	*ptr;
 
@@ -52,9 +52,9 @@ void	normalize_min(t_stack *stack, int min)
 	}
 }
 
-int	get_min_not_normalized(t_stack *stack, int max)
+long int	get_min_not_normalized(t_stack *stack, long int max)
 {
-	int	min;
+	long int	min;
 
 	min = -1;
 	while (stack && min == -1)

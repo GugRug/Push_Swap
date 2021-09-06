@@ -57,7 +57,8 @@ SRCS_STACK			=	$(DIR_SRCS_STACK)/stack.c						\
 						$(DIR_SRCS_STACK)/b_operations.c				\
 						$(DIR_SRCS_STACK)/double_operations.c
 
-SRCS_UTILS			=	$(DIR_SRCS_UTILS)/utils.c
+SRCS_UTILS			=	$(DIR_SRCS_UTILS)/utils.c						\
+						$(DIR_SRCS_UTILS)/clean.c
 
 # OBJS
 SUBDIRS				=	main parser stack utils
@@ -102,6 +103,10 @@ name_clean:
 			@echo "$(NAME) was removed successfully!"
 
 fclean: libs_clean clean name_clean
+
+# VALGRIND RULES
+valg:
+	valgrind --leak-check=full ./$(NAME) "2 54 6 8907 635 892 639 729 3 938 279 3487 298 63 0282976 29763 388 21 38 "
 
 # BASIC RULES
 re: fclean all

@@ -1,6 +1,6 @@
 /* ************************************************************************** */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gugrug <gustavorugg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -8,25 +8,19 @@
 /*                                                    ###   ########          */
 /* ************************************************************************** */
 
-#ifndef SWAP_H
-# define SWAP_H
+#include "push_swap.h"
 
-/*
-**	--------------- ELEMENTS TYPEDEFS ---------------
-*/
-
-typedef struct s_stack
+void	stackclear(t_stack **lst)
 {
-	long int		v;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}				t_stack;
+	t_stack	*tmp;
 
-typedef struct s_world
-{
-	int				size;
-	t_stack			*a;
-	t_stack			*b;
-}				t_world;
-
-#endif
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		free(*lst);
+		*lst = tmp;
+	}
+	*lst = NULL;
+}
